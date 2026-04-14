@@ -1,0 +1,15 @@
+.resume {
+  width: 600px;
+  height: 776px;
+  background-color: white;
+  padding: 24px 28px;
+}
+
+.title-section p {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 8px;
+}
