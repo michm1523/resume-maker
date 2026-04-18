@@ -1,0 +1,60 @@
+.edit-education {
+  background-color: white;
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.edit-education h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 24px;
+  cursor: pointer;
+}
+
+.edit-education-open h2 {
+  margin-bottom: 12px;
+}
+
+.edit-education .edit-education ion-icon {
+  pointer-events: none;
+}
+
+.edit-education ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edit-education li {
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.edit-education li:hover {
+  background-color: rgb(213, 213, 213);
+}
+
+.add-education {
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-education button {
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  background-color: rgb(230, 230, 230);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.add-education button:hover {
+  background-color: rgb(213, 213, 213);
+}

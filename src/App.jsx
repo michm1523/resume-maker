@@ -1,5 +1,6 @@
 import PersonalDetails from "./components/PersonalDetails";
 import Resume from "./components/Resume";
+import EditEducation from "./components/EditEducation";
 import "./styles/App.css";
 import { useState } from "react";
 
@@ -10,12 +11,43 @@ const tempPersonalInfo = {
   location: "Toronto, ON",
 };
 
+const tempEducation = [
+  {
+    name: "University of Toronto",
+    degree: "Bachelors in Computer Science",
+    start: "Sept. 2025",
+    end: "Apr. 2029",
+    location: "Toronto, ON",
+  },
+  {
+    name: "Fake University",
+    degree: "Bachelors in Economics",
+    start: "Sept. 2025",
+    end: "Apr. 2029",
+    location: "Toronto, ON",
+  },
+];
+
 function App() {
   const [personalInfo, setPersonalInfo] = useState(tempPersonalInfo);
+  const [education, setEducation] = useState(tempEducation);
+  const [activeDrop, setActiveDrop] = useState("");
 
   function handleInfoChange(attribute, value) {
-    console.log(attribute + " " + value);
     setPersonalInfo({ ...personalInfo, [attribute]: value });
+  }
+
+  function handleEducationChange(index, info) {
+    let newEducation = [...education];
+    if (index == education.length) {
+      newEducation.push(info);
+    } else if (index == -1) {
+      newEducation.pop();
+    } else {
+      newEducation[index] = info;
+    }
+
+    setEducation(newEducation);
   }
 
   return (
@@ -45,7 +77,26 @@ function App() {
             handleInfoChange(event.target.id, event.target.value);
           }}
         />
+        {activeDrop === "education" ? (
+          <EditEducation
+            open={open}
+            education={education}
+            handleDrop={() => {
+              setActiveDrop("");
+            }}
+            handleChange={handleEducationChange}
+          />
+        ) : (
+          <EditEducation
+            open={false}
+            education={education}
+            handleDrop={() => {
+              setActiveDrop("education");
+            }}
+          />
+        )}
       </div>
+
       <Resume personalInfo={personalInfo} />
     </div>
   );

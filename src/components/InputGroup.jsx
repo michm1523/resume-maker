@@ -1,6 +1,6 @@
 import "../styles/InputGroup.css";
 
-function InputGroup({ type, name, id, placeholder, value, handleChange }) {
+function InputGroup({ type, name, id, placeholder, value = "", handleChange }) {
   return (
     <div className="input-group">
       <label htmlFor={id}>{name}</label>
