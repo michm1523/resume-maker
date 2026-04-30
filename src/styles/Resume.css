@@ -1,8 +1,32 @@
 .resume {
+  position: relative;
+  cursor: pointer;
+}
+
+.resume-container {
   width: 600px;
   height: 776px;
   background-color: white;
   padding: 24px 40px;
+}
+
+.resume-container:hover {
+  filter: blur(5px) brightness(1.05);
+}
+
+.download {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  pointer-events: none;
+}
+
+.resume:hover .download {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .title-section p {
