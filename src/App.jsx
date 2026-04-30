@@ -1,6 +1,5 @@
 import PersonalDetails from "./components/PersonalDetails";
 import Resume from "./components/Resume";
-import EditEducation from "./components/EditEducation";
 import EditMenu from "./components/EditMenu";
 import "./styles/App.css";
 import { useState } from "react";

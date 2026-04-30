@@ -1,4 +1,4 @@
-import "../styles/ExperienceForm.css";
+import "../styles/FormStyles.css";
 import InputGroup from "./InputGroup";
 
 function ExperienceForm({
@@ -9,7 +9,7 @@ function ExperienceForm({
   handleDelete,
 }) {
   return (
-    <form action="#" className="experience-form">
+    <form action="#" className="form">
       <InputGroup
         type="text"
         name="name"
@@ -60,11 +60,11 @@ function ExperienceForm({
         value={info.description}
         handleChange={handleChange}
       />
-      <div className="experience-form-btn-group">
-        <button className="cancel-experience" onClick={handleCancel}>
+      <div className="form-btn-group">
+        <button className="cancel-form" onClick={handleCancel}>
           Cancel
         </button>
-        <button className="save-experience" onClick={handleSave}>
+        <button className="save-form" onClick={handleSave}>
           Save
         </button>
         {handleDelete && (

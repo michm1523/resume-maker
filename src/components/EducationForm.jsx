@@ -1,4 +1,4 @@
-import "../styles/EducationForm.css";
+import "../styles/FormStyles.css";
 import InputGroup from "./InputGroup";
 
 function EducationForm({
@@ -9,7 +9,7 @@ function EducationForm({
   handleDelete,
 }) {
   return (
-    <form action="#" className="education-form">
+    <form action="#" className="form">
       <InputGroup
         type="text"
         name="name"
@@ -52,11 +52,11 @@ function EducationForm({
         value={info.location}
         handleChange={handleChange}
       />
-      <div className="education-form-btn-group">
-        <button className="cancel-education" onClick={handleCancel}>
+      <div className="form-btn-group">
+        <button className="cancel-form" onClick={handleCancel}>
           Cancel
         </button>
-        <button className="save-education" onClick={handleSave}>
+        <button className="save-form" onClick={handleSave}>
           Save
         </button>
         {handleDelete && (
