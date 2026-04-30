@@ -1,6 +1,7 @@
 import PersonalDetails from "./components/PersonalDetails";
 import Resume from "./components/Resume";
 import EditEducation from "./components/EditEducation";
+import EditMenu from "./components/EditMenu";
 import "./styles/App.css";
 import { useState } from "react";
 
@@ -28,9 +29,31 @@ const tempEducation = [
   },
 ];
 
+const tempExperience = [
+  {
+    name: "John's Pies",
+    title: "Baker",
+    start: "Feb. 2025",
+    end: "Aug. 2025",
+    location: "Toronto, ON",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam minus distinctio ut qui eveniet quam explicabo. Unde earum perferendis modi neque, ad ex atque.",
+  },
+  {
+    name: "John's Software Company",
+    title: "Junior Software Engineer",
+    start: "Sep. 2025",
+    end: "Present",
+    location: "Toronto, ON",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam minus distinctio ut qui eveniet quam explicabo. Unde earum perferendis modi neque, ad ex atque.",
+  },
+];
+
 function App() {
   const [personalInfo, setPersonalInfo] = useState(tempPersonalInfo);
   const [education, setEducation] = useState(tempEducation);
+  const [experience, setExperience] = useState(tempExperience);
   const [activeDrop, setActiveDrop] = useState("");
 
   function handleInfoChange(attribute, value) {
@@ -54,6 +77,23 @@ function App() {
     setEducation(newEducation);
   }
 
+  function handleExperienceChange(index, info) {
+    let newExperience = [...experience];
+    if (index == experience.length) {
+      newExperience.push(info);
+    } else if (index == -1) {
+      newExperience.pop();
+    } else {
+      newExperience[index] = info;
+      if (Object.keys(info).length == 0) {
+        newExperience.splice(index, 1);
+        console.log("deleted");
+      }
+    }
+
+    setExperience(newExperience);
+  }
+
   return (
     <div className="app">
       <div className="edit-resume">
@@ -63,6 +103,7 @@ function App() {
             onClick={() => {
               setPersonalInfo({ name: "", email: "", phone: "", location: "" });
               setEducation([]);
+              setExperience([]);
             }}
           >
             Clear Resume
@@ -72,6 +113,7 @@ function App() {
             onClick={() => {
               setPersonalInfo(tempPersonalInfo);
               setEducation(tempEducation);
+              setExperience(tempExperience);
             }}
           >
             Load Template
@@ -83,27 +125,40 @@ function App() {
             handleInfoChange(event.target.id, event.target.value);
           }}
         />
-        {activeDrop === "education" ? (
-          <EditEducation
-            open={open}
-            education={education}
-            handleDrop={() => {
+
+        <EditMenu
+          type="education"
+          open={activeDrop == "education"}
+          info={education}
+          handleDrop={() => {
+            if (activeDrop == "education") {
               setActiveDrop("");
-            }}
-            handleChange={handleEducationChange}
-          />
-        ) : (
-          <EditEducation
-            open={false}
-            education={education}
-            handleDrop={() => {
+            } else {
               setActiveDrop("education");
-            }}
-          />
-        )}
+            }
+          }}
+          handleChange={handleEducationChange}
+        />
+        <EditMenu
+          type="experience"
+          open={activeDrop == "experience"}
+          info={experience}
+          handleDrop={() => {
+            if (activeDrop == "experience") {
+              setActiveDrop("");
+            } else {
+              setActiveDrop("experience");
+            }
+          }}
+          handleChange={handleExperienceChange}
+        />
       </div>
 
-      <Resume personalInfo={personalInfo} education={education} />
+      <Resume
+        personalInfo={personalInfo}
+        education={education}
+        experience={experience}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import "../styles/Resume.css";
 
-function Resume({ personalInfo, education }) {
+function Resume({ personalInfo, education, experience }) {
   return (
     <div className="resume">
       <div className="title-section">
@@ -11,10 +11,10 @@ function Resume({ personalInfo, education }) {
       </div>
       <div className="education-section">
         <h2 className="section-title">Education</h2>
-        <ul className="res-education-list">
+        <ul className="res-list">
           {education.map((ed) => {
             return (
-              <li className="res-education-item">
+              <li className="res-item">
                 <div>
                   <h3>{ed.name}</h3>
                   <p>{ed.location}</p>
@@ -25,6 +25,28 @@ function Resume({ personalInfo, education }) {
                     {ed.start} - {ed.end}
                   </p>
                 </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <div className="experience-section">
+        <h2 className="section-title">Experience</h2>
+        <ul className="res-list">
+          {experience.map((exp) => {
+            return (
+              <li className="res-item">
+                <div>
+                  <h3>{exp.title}</h3>
+                  <p>{exp.location}</p>
+                </div>
+                <div>
+                  <p>{exp.name}</p>
+                  <p>
+                    {exp.start} - {exp.end}
+                  </p>
+                </div>
+                <p className="res-description">{exp.description}</p>
               </li>
             );
           })}

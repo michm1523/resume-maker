@@ -1,0 +1,45 @@
+.experience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.start-end {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-form-btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.experience-form-btn-group button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.cancel-experience {
+  background-color: rgb(255, 42, 42);
+  color: white;
+  transition: all 0.3s;
+}
+
+.cancel-experience:hover {
+  background-color: rgb(255, 101, 101);
+}
+
+.save-experience {
+  background-color: rgb(37, 129, 30);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s;
+}
+
+.save-experience:hover {
+  background-color: rgb(66, 165, 59);
+}

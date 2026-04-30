@@ -1,0 +1,60 @@
+.edit-menu {
+  background-color: white;
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.edit-menu h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 24px;
+  cursor: pointer;
+}
+
+.edit-menu-open h2 {
+  margin-bottom: 12px;
+}
+
+.edit-menu .edit-menu ion-icon {
+  pointer-events: none;
+}
+
+.edit-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edit-menu li {
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.edit-menu li:hover {
+  background-color: rgb(213, 213, 213);
+}
+
+.add-menu {
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-menu button {
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  background-color: rgb(230, 230, 230);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.add-menu button:hover {
+  background-color: rgb(213, 213, 213);
+}
