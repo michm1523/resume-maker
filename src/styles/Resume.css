@@ -1,6 +1,5 @@
 .resume {
   position: relative;
-  cursor: pointer;
 }
 
 .resume-container {
@@ -10,7 +9,7 @@
   padding: 24px 40px;
 }
 
-.resume-container:hover {
+.resume:hover .resume-container {
   filter: blur(5px) brightness(1.05);
 }
 
@@ -20,7 +19,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  pointer-events: none;
 }
 
 .resume:hover .download {
@@ -29,6 +27,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.download:hover {
+  color: rgb(92, 92, 92);
 }
 
 .download p {

@@ -3,21 +3,7 @@ import html2pdf from "html2pdf.js";
 
 function Resume({ personalInfo, education, experience }) {
   return (
-    <div
-      className="resume"
-      onClick={() => {
-        const opt = {
-          margin: 0,
-          filename: "resume.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 4, width: 600, height: 776 },
-          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-        };
-
-        const resume = document.querySelector(".resume");
-        html2pdf().set(opt).from(resume).save();
-      }}
-    >
+    <div className="resume">
       <div className="resume-container">
         <div className="title-section">
           <h1>{personalInfo.name}</h1>
@@ -70,7 +56,21 @@ function Resume({ personalInfo, education, experience }) {
           </ul>
         </div>
       </div>
-      <div className="download">
+      <div
+        className="download"
+        onClick={() => {
+          const opt = {
+            margin: 0,
+            filename: "resume.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 4, width: 600, height: 776 },
+            jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+          };
+
+          const resume = document.querySelector(".resume");
+          html2pdf().set(opt).from(resume).save();
+        }}
+      >
         <p>Download</p>
         <ion-icon name="download-outline"></ion-icon>
       </div>
