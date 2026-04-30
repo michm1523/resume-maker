@@ -1,7 +1,6 @@
 import "../styles/EditEducation.css";
 import { useState } from "react";
 import EducationForm from "./EducationForm";
-import InputGroup from "./InputGroup";
 
 function EditEducation({ open, education, handleDrop, handleChange }) {
   const [form, setForm] = useState({
@@ -23,6 +22,15 @@ function EditEducation({ open, education, handleDrop, handleChange }) {
               handleChange(-1, form.initialInfo);
               setForm({ open: false, index: -1, initialInfo: {} });
             }}
+            handleSave={() => {
+              setForm({ open: false, index: -1, initialInfo: {} });
+            }}
+            handleChange={(event) => {
+              handleChange(form.index, {
+                ...education[form.index],
+                [event.target.name]: event.target.value,
+              });
+            }}
           />
         ) : (
           <EducationForm
@@ -31,13 +39,39 @@ function EditEducation({ open, education, handleDrop, handleChange }) {
               handleChange(form.index, form.initialInfo);
               setForm({ open: false, index: -1, initialInfo: {} });
             }}
+            handleSave={() => {
+              setForm({ open: false, index: -1, initialInfo: {} });
+            }}
+            handleChange={(event) => {
+              handleChange(form.index, {
+                ...education[form.index],
+                [event.target.name]: event.target.value,
+              });
+            }}
+            handleDelete={() => {
+              handleChange(form.index, {});
+              setForm({ open: false, index: -1, initialInfo: {} });
+            }}
           />
         )
       ) : (
         <>
           <ul>
-            {education.map((info) => {
-              return <li>{info.name}</li>;
+            {education.map((info, index) => {
+              return (
+                <li
+                  onClick={() => {
+                    setForm({
+                      ...form,
+                      open: true,
+                      index: index,
+                      initialInfo: education[index],
+                    });
+                  }}
+                >
+                  {info.name}
+                </li>
+              );
             })}
           </ul>
           <div

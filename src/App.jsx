@@ -45,6 +45,10 @@ function App() {
       newEducation.pop();
     } else {
       newEducation[index] = info;
+      if (Object.keys(info).length == 0) {
+        newEducation.splice(index, 1);
+        console.log("deleted");
+      }
     }
 
     setEducation(newEducation);
@@ -58,6 +62,7 @@ function App() {
             className="clear-btn"
             onClick={() => {
               setPersonalInfo({ name: "", email: "", phone: "", location: "" });
+              setEducation([]);
             }}
           >
             Clear Resume
@@ -66,6 +71,7 @@ function App() {
             className="load-btn"
             onClick={() => {
               setPersonalInfo(tempPersonalInfo);
+              setEducation(tempEducation);
             }}
           >
             Load Template
@@ -97,7 +103,7 @@ function App() {
         )}
       </div>
 
-      <Resume personalInfo={personalInfo} />
+      <Resume personalInfo={personalInfo} education={education} />
     </div>
   );
 }
