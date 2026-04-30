@@ -7,6 +7,8 @@
   height: 776px;
   background-color: white;
   padding: 24px 40px;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .resume:hover .resume-container {
