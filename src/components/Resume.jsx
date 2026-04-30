@@ -70,7 +70,10 @@ function Resume({ personalInfo, education, experience }) {
           </ul>
         </div>
       </div>
-      <p className="download">Click to download</p>
+      <div className="download">
+        <p>Download</p>
+        <ion-icon name="download-outline"></ion-icon>
+      </div>
     </div>
   );
 }
